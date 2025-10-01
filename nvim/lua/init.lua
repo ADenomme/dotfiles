@@ -6,4 +6,4 @@ require("alex.autocmp")
 require("alex.treesitter")
 require("alex.telescope")
 require("alex.env.wsl")
-
+require("alex.indent")

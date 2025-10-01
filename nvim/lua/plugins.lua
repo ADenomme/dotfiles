@@ -42,5 +42,13 @@ require("lazy").setup({
   {
   "hiphish/rainbow-delimiters.nvim",
   lazy = false,
+},
+{
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
 }
-})
+}
+)
