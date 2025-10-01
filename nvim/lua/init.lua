@@ -1,0 +1,9 @@
+require("alex.plugins")
+require("alex.lsp")
+require("alex.keymaps")
+require("alex.ui")
+require("alex.autocmp")
+require("alex.treesitter")
+require("alex.telescope")
+require("alex.env.wsl")
+
