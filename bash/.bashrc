@@ -41,7 +41,7 @@ git_modified_count() {
   modified=$(git diff --name-only 2>/dev/null | wc -l)
 
   # Total tracked but not committed
-  echo $modified
+  echo "$modified"
 }
 git_staged_count() {
   git rev-parse --is-inside-work-tree &>/dev/null || return
@@ -50,7 +50,7 @@ git_staged_count() {
   staged=$(git diff --cached --name-only 2>/dev/null | wc -l)
 
   # Total tracked but not committed
-  echo $staged
+  echo "$staged"
 }
 git_untracked_count() {
   # Exit early if not in a Git repo
