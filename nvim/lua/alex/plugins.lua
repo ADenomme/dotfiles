@@ -75,11 +75,11 @@ require("lazy").setup({
   },
   -- Code Linter
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("alex.linter")
-    end
+    "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvimtools/none-ls-extras.nvim", -- ✅ this is the Ruff source
+    },
   }
 }
 )
