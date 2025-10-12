@@ -3,28 +3,37 @@ require("mason").setup()
 
 -- Mason-LSP bridge
 require("mason-lspconfig").setup {
-  ensure_installed = { "pyright", "lua_ls" },
+  ensure_installed = { "lua_ls", "pyright" },
 }
 
--- Enable servers
+-- Completion capabilities
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-local servers = { "pyright", "lua_ls" }
+-- Optional: on_attach
+local on_attach = function(_, _) end
 
-for _, server in ipairs(servers) do
-  vim.lsp.enable(server, {
-    settings = server == "lua_ls" and {
-      Lua = {
-        diagnostics = {
-          globals = { "vim" },
-        },
-        workspace = {
-          library = vim.api.nvim_get_runtime_file("", true),
-          checkThirdParty = false,
-        },
-        telemetry = {
-          enable = false,
-        },
+-- Lua config
+vim.lsp.config("lua_ls", {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      diagnostics = { globals = { "vim" } },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
       },
-    } or nil,
-  })
-end
+      telemetry = { enable = false },
+    },
+  },
+})
+
+-- Python config
+vim.lsp.config("pyright", {
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- Enable servers
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("pyright")

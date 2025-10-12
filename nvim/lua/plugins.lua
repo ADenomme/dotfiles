@@ -1,19 +1,22 @@
 require("lazy").setup({
   -- Core LSP setup
-  { "neovim/nvim-lspconfig" },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    version = "*"
+  },
   { "williamboman/mason.nvim" },
-  { "williamboman/mason-lspconfig.nvim" },
- 
+  { "neovim/nvim-lspconfig" },
+
   -- Optional: Autocompletion
   { "hrsh7th/nvim-cmp" },
   { "hrsh7th/cmp-nvim-lsp" },
   { "L3MON4D3/LuaSnip" },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  
-  -- Color schemes 
+
+  -- Color schemes
   { "Mofiqul/vscode.nvim" },
 
-  -- Telescope 
+  -- Telescope
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
@@ -40,15 +43,35 @@ require("lazy").setup({
   },
   -- Rainbow parentheses
   {
-  "hiphish/rainbow-delimiters.nvim",
-  lazy = false,
-},
-{
+    "hiphish/rainbow-delimiters.nvim",
+    lazy = false,
+  },
+  {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     ---@module "ibl"
     ---@type ibl.config
     opts = {},
-}
+  },
+  {
+
+    "stevearc/conform.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("conform").setup({
+        formatters_by_ft = {
+          python = { "black" },
+          lua = { "stylua" },
+          javascript = { "prettier" },
+          json = { "prettier" },
+          markdown = { "prettier" },
+        },
+        format_on_save = {
+          timeout_ms = 500,
+          lsp_fallback = true,
+        },
+      })
+    end,
+  }
 }
 )
