@@ -1,4 +1,4 @@
-vim.diagnostic.config({ signs = false,})
+vim.diagnostic.config({ signs = false, })
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.tabstop = 2
@@ -9,16 +9,15 @@ vim.o.expandtab = true
 vim.o.background = 'dark' -- dark / light
 require('vscode').setup({
 
-	-- transparent mode
-	transparent = true,
+  -- transparent mode
+  transparent = true,
 
-	-- Comments
-	italic_commments = true,
+  -- Comments
+  italic_commments = true,
 
-	-- Apply colors to terminal
-	terminal_colors = true
+  -- Apply colors to terminal
+  terminal_colors = true
 
 
 })
 vim.cmd.colorscheme "vscode"
-vim.api.nvim_set_hl(0, "CmpGhostText", { fg = "#5c6370", italic = true })

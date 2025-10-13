@@ -15,7 +15,12 @@ require("lazy").setup({
 
   -- Color schemes
   { "Mofiqul/vscode.nvim" },
-
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
   -- Telescope
   {
     "nvim-telescope/telescope.nvim",
