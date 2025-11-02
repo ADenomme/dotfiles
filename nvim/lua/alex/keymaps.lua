@@ -20,6 +20,19 @@ end, { desc = "Copy :messages to clipboard" })
 -- e.g., gd
 vim.keymap.set("n", "<leader>hc", "<cmd>noh", { noremap = true, silent = true, desc = "Clear current highlighting" })
 
+-- Code Folding
+-- Close current fold
+vim.keymap.set("n", "<leader>fc", "zc", { desc = "Close fold" })
+-- Open current fold
+vim.keymap.set("n", "<leader>fo", "zo", { desc = "Open fold" })
+-- Toggle fold under cursor
+vim.keymap.set("n", "<leader>ft", "za", { desc = "Toggle fold" })
+-- Close all folds
+vim.keymap.set("n", "<leader>fC", "zM", { desc = "Close all folds" })
+-- Open all folds
+vim.keymap.set("n", "<leader>fO", "zR", { desc = "Open all folds" })
+
+
 -- Telescope keymaps
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, {})
 vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, {})
