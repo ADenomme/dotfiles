@@ -88,3 +88,9 @@ require("lazy").setup({
   }
 }
 )
+
+-- netrw preferences
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 80
+vim.g.netrw_browse_split = 2
+vim.g.netrw_altv = 1
